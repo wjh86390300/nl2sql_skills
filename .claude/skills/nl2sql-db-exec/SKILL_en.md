@@ -31,7 +31,7 @@ to give the LLM a simple, reliable way to interact with the database.
 Host: sql_ip:sql_port
 Database: sql_skills_test
 User: root
-Script: D:\nl2sql_test_skill\.claude\skills\nl2sql-explore-field\scripts\db_query.py
+Script: .claude\skills\nl2sql-explore-field\scripts\db_query.py
 ```
 
 ## Available Operations
@@ -41,7 +41,7 @@ All commands should be run from the project root:
 ### 1. Execute Arbitrary SQL
 
 ```bash
-cd D:\nl2sql_test_skill\.claude\skills\nl2sql-explore-field && python scripts/db_query.py "<SQL statement>"
+cd .claude\skills\nl2sql-explore-field && python scripts/db_query.py "<SQL statement>"
 ```
 
 Returns JSON with `columns` (list of column names) and `rows` (list of result tuples).
@@ -54,13 +54,13 @@ Returns JSON with `columns` (list of column names) and `rows` (list of result tu
 
 **Example:**
 ```bash
-cd D:\nl2sql_test_skill\.claude\skills\nl2sql-explore-field && python scripts/db_query.py "SELECT DISTINCT project_name FROM sql_skills.a WHERE credit_evaluation_total_score LIKE '%10%';"
+cd .claude\skills\nl2sql-explore-field && python scripts/db_query.py "SELECT DISTINCT project_name FROM sql_skills.a WHERE credit_evaluation_total_score LIKE '%10%';"
 ```
 
 ### 2. Cross-table Value Search (--find)
 
 ```bash
-cd D:\nl2sql_test_skill\.claude\skills\nl2sql-explore-field && python scripts/db_query.py --find "<value>"
+cd .claude\skills\nl2sql-explore-field && python scripts/db_query.py --find "<value>"
 ```
 
 Searches across all configured tables and columns to find which ones contain the given value.
@@ -70,13 +70,13 @@ This is the **primary tool** for resolving which column an unknown entity belong
 
 **Example:**
 ```bash
-cd D:\nl2sql_test_skill\.claude\skills\nl2sql-explore-field && python scripts/db_query.py --find "安装工程"
+cd .claude\skills\nl2sql-explore-field && python scripts/db_query.py --find "安装工程"
 ```
 
 ### 3. Explore Field Value Distribution (--explore)
 
 ```bash
-cd D:\nl2sql_test_skill\.claude\skills\nl2sql-explore-field && python scripts/db_query.py --explore <field_name> <table_name>
+cd .claude\skills\nl2sql-explore-field && python scripts/db_query.py --explore <field_name> <table_name>
 ```
 
 Shows the distinct values and their frequencies for a specific column. Useful when you need
@@ -84,13 +84,13 @@ to understand what values a field can take (e.g., confirming that `city_class` c
 
 **Example:**
 ```bash
-cd D:\nl2sql_test_skill\.claude\skills\nl2sql-explore-field && python scripts/db_query.py --explore project_name a
+cd .claude\skills\nl2sql-explore-field && python scripts/db_query.py --explore project_name a
 ```
 
 ### 4. List All Tables (--tables)
 
 ```bash
-cd D:\nl2sql_test_skill\.claude\skills\nl2sql-explore-field && python scripts/db_query.py --tables
+cd .claude\skills\nl2sql-explore-field && python scripts/db_query.py --tables
 ```
 
 Lists all tables in the database with their comments.
@@ -98,14 +98,14 @@ Lists all tables in the database with their comments.
 ### 5. View Table Schema (--schema)
 
 ```bash
-cd D:\nl2sql_test_skill\.claude\skills\nl2sql-explore-field && python scripts/db_query.py --schema <table_name>
+cd .claude\skills\nl2sql-explore-field && python scripts/db_query.py --schema <table_name>
 ```
 
 Shows column names, data types, and comments for a specific table.
 
 **Example:**
 ```bash
-cd D:\nl2sql_test_skill\.claude\skills\nl2sql-explore-field && python scripts/db_query.py --schema a
+cd .claude\skills\nl2sql-explore-field && python scripts/db_query.py --schema a
 ```
 
 ## Interpreting Results
